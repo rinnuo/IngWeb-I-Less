@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+@bg: #121517;
+@cl: #ED9090;
+@ow: #bdbdbd;
+@tablet: (max-width: 991px);
+@phone: (max-width: 767px);
+
+
+
+#display {
+	.top {
+		position: fixed;
+		width: 100%;
+
+	}
+	.center {
+		margin: 0 auto;
+	}
+
+	.flex {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+}
+
+
+* {
+	box-sizing: border-box;
+	font-family: Comfortaa;
+}
+body, html {
+	margin: 0;
+	padding: 0;
+	background-color: @bg;
+	color: @ow;
+}
+
+header {
+	#display.flex();
+	#display.top();
+	background-color: @cl;
+	height: 75px;
+	box-shadow: 0px 1px 10px @bg;
+
+	#logo {
+		width: 130px;
+		display: block;
+
+		@media @tablet {
+			width: 100px;
+		}
+
+		@media @phone {
+			display: none;
+		}
+	}
+
+	@media @phone {
+		justify-content: center;
+	}
+
+	nav {
+		ul {
+			li {
+				display: inline-block;
+				transform: skew(-18deg);
+				a {
+					display: block;
+					font-size: 16px;
+					font-weight: bold;
+					margin-right:20px;
+					width: 	100%;
+					height: 75px;
+					color: @bg;
+					line-height: 75px;
+					text-align: center;
+					text-decoration: none;
+					transition: color 250ms linear, background-color 250ms linear;
+
+					&:hover{
+						background-color: @bg;
+						color: @cl;
+						transition: color 150ms linear, background-color 150ms linear;
+					}
+
+					&:visited {
+						color: @bg;
+					}
+
+					@media @tablet {
+						font-size: 14px;
+					}
+
+					@media @phone {
+						font-size: 12px;
+						margin-right: 5px;
+						margin-left: 0px;
+					}
+				}
+			}
+		}
+	}
+	::selection {
+    	background: @ow;
+   		color: @bg;
+	}
+}
+
+.wrapper {
+	background-color: shade(@cl, 65%);
+	padding: 75px 15px 10px;
+	border: 1px solid @cl;
+	#display.center();
+	width: 940px;
+
+	@media @tablet {
+		width: 95%;
+	}
+
+	hr {
+		width: 40%;
+		border-style: dashed;
+	}
+
+	h1 {
+		text-align: center;
+		color: @cl;
+		font-size: 30px;
+	}
+
+	article {
+		margin-bottom: 50px;
+
+		a {
+			text-decoration: none;
+			color: violet;
+
+			&:before, &:after{
+				content: ' — '
+			}
+
+			&:hover {
+				color: blueviolet;
+			}
+
+			&:visited {
+				color: violet;
+			}
+		}
+
+
+		h2 {
+			border-color: transparent transparent transparent white;
+			border-width: 5px;
+			border-style: solid;
+			border-radius: 50px;
+			padding-left: 20px;
+		}
+
+		span {
+			color: @cl;
+
+			&.jump {
+				visibility: hidden;
+				position: relative;
+				top: -100px;
+			}
+		}
+
+		code {
+			display: block;
+			background: @bg;
+			width: fit-content;
+			border: 1px solid @ow;
+			border-radius: 5px;
+			padding: 5px;
+			#display.center();
+		}
+
+		p {
+			line-height: 24px;
+			code {
+				display: inline;
+				white-space: nowrap;
+			}
+		}
+	}
+	::selection {
+    	background: @cl;
+    	color: @bg;
+	}
+}

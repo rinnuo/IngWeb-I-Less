@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet/less" type="text/css" href="styles.less"/>
+	<script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+
+	<title>Less - Basico</title>
+</head>
+
+<body>
+	<header>
+		<a href="index.html">
+			<img id="logo" src="img/less_logo.png" alt="Logo de Less">
+		</a>
+
+		<nav>
+			<ul>
+				<li><a href="#install">Instalación</a></li>
+				<li><a href="#variables">Variables</a></li>
+				<li><a href="#mixins">Mixins</a></li>
+				<li><a href="#nesting">Nesting</a></li>
+				<li><a href="#operations">Operaciones</a></li>
+				<li><a href="#functions">Funciones</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<div class="wrapper">
+
+
+		<section>
+			<article>
+				<span class="jump" id="install"></span>
+				<h1>Instalación</h1>
+
+				<p>Para usar Less en producción, es recomandado usarlo con Node.js con los comandos:</p>
+				<code>npm install -g less</code>
+				<code>&gt; lessc styles.less styles.css</code>
+
+				<p>Para compilar lo directo en navegador, se puede colocar en el elemento &lt;head&gt; de la siguiente forma:</p>
+				<code>&lt;link rel="stylesheet/less" type="text/css" href="styles.less"/&gt;</code>
+				<code>&lt;script src="https://cdn.jsdelivr.net/npm/less@4"&gt;&lt;/script&gt;</code>
+
+				<p>Si estas intentando de usar less sin un servidor, y ves una pagina blanca, puedes poner <code>-allow-file-access-from-files</code> en el shortcut de tu navegador.</p>
+			</article>
+
+			<hr>
+			<h1>Features</h1>
+
+			<article>
+				<span class="jump" id="variables"></span>
+				<h2>Variables</h2>
+
+				<p>Less te permite declarar variables que se pueden usar como <span>valores, selectores, propiedades, URLs, y @import</span></p>
+
+				<p>@e declararon con el uso del simbolo <span>@</span> antes del nombre del variable, por ejemplo: el color de fondo esta declarado con <span>@bg: #121517;</span></p>
+				
+				<p><span>Scope</span>: si reasignas un variable dentro de un ruleset, llamando el variable busca primera dentro del ruleset y despues los rulesets padres (nesting)</p>
+			</article>
+	
+			<article>
+				<span class="jump" id="mixins"></span>
+				<h2>Mixins</h2>
+
+				<p>Los Mixins te permiten usar las propiedades de un ruleset dentro de otro.</p>
+				<p>Para usar los Mixins, simplemente pones el selector con parentesis como si fuera una propiedad sin valor:</p>
+
+				<pre><code>.highlight {<br>    color: red;<br>    font-weight: bold;<br>}<br>p span {<br>    text-decoration: underline;<br>    .highlight();<br>}</code></pre>
+
+				<p>Tambien puedes agrupar tus mixins para organizacion</p>
+				<p>Si agrupas .boton y .radio dentro de #inputs, puedes usar los de forma: <span>#inputs.boton();</span> y <span>#inputs.radio();</span></p>
+			</article>
+	
+			<article>
+				<span class="jump" id="nesting"></span>
+				<h2>Nesting</h2>
+
+				<p>Less te permite anidar rulesets dentro de otros rulesets</p>
+
+				<p>Incluso funciona con <span>@media</span>, <span>@support</span> selectores, y pseudo selectores:</p>
+
+				<pre><code>ul li{<br>    display: inline;<br>    a {<br>        color: red;<br>        text-decoration: none;<br>        &:hover {<br>            color: green;<br>        }<br>    }<br>    @media (min-width: 768px) {<br>        display: block;<br>    }<br>}</code></pre>
+			</article>
+	
+			<article>
+				<span class="jump" id="operations"></span>
+				<h2>Operaciones</h2>
+
+				<p>Less te permite realizar operaciones entre numeros de diferente unidades y los convierte al tipo del primer numero, si conversion no es posible ignora los tipos.</p>
+				<p>Tambien te permite realizar operaciones con colores.</p>
+				<p><code>background-color: (#223344 * 2);</code> resulta en #446688</p>
+			</article>
+
+			<article>
+				<span class="jump" id="functions"></span>
+				<h2>Funciones</h2>
+
+				<p>Less te permite usar funciones logicas, funciones de String, funciones matematicas, funciones de color, y varios otros.</p>
+				<p>Con estas funciones puedes hacer condicionales, modificar colores, modificar texto, generar listas con rangos, modificar numeros, y mucho mas</p>
+
+				<p>Recomiendo leer la documentacion <a target="_blank" href="https://lesscss.org/functions">aqui</a>.</p>
+			</article>
+		</section>
+	</div>
+</body>
+
+</html>
